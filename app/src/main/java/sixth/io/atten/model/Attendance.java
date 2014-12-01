@@ -6,9 +6,16 @@ package sixth.io.atten.model;
 public class Attendance {
     private int presentDays;
     private int absentDays;
+    private int threshold;
 
     public Attendance() {
         this.absentDays = this.presentDays = 0;
+    }
+
+    public Attendance(int presentDays, int absentDays, int threshold) {
+        this.presentDays = presentDays;
+        this.absentDays = absentDays;
+        this.threshold = threshold;
     }
 
     public Integer getPresentDays() {
@@ -29,6 +36,14 @@ public class Attendance {
         } else {
             return presentDays * 100.0 / (presentDays + absentDays);
         }
+    }
+
+    public void setThreshold(int threshold) {
+        this.threshold = threshold;
+    }
+
+    public int getThreshold() {
+        return this.threshold;
     }
 
     public void markAbsentDay() {

@@ -1,5 +1,7 @@
 package sixth.io.atten.controller;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -15,6 +17,7 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 import sixth.io.atten.R;
 import sixth.io.atten.model.Attendance;
+import sixth.io.atten.util.Atten;
 
 /**
  * Created by swapnil on 1/12/14.
@@ -22,9 +25,9 @@ import sixth.io.atten.model.Attendance;
 public class MainFragment extends Fragment {
 
     private static SnackBar snackBar;
+    private static Attendance attendance;
+    private SharedPreferences preferences;
 
-    private Attendance attendance;
-    private static int threshold;
     public MainFragment() {
         attendance = new Attendance();
     }
@@ -52,6 +55,10 @@ public class MainFragment extends Fragment {
         ButterKnife.inject(this, rootView);
         thresholdBar.setOnSeekBarChangeListener(new ThresholdBar());
         snackBar = new SnackBar(getActivity());
+        preferences = getActivity().getSharedPreferences(Atten.PREF_FILE, Context.MODE_PRIVATE);
+
+        checkFirstRun();
+
         return rootView;
     }
 
@@ -59,6 +66,16 @@ public class MainFragment extends Fragment {
     public void onResume() {
         super.onResume();
         refreshView();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt(Atten.PREF_THRESHOLD, attendance.getThreshold());
+        editor.putInt(Atten.PREF_PRESENT, attendance.getPresentDays());
+        editor.putInt(Atten.PREF_ABSENT, attendance.getAbsentDays());
+        editor.apply();
     }
 
     private void refreshView() {
@@ -72,6 +89,7 @@ public class MainFragment extends Fragment {
         String presentText = String.format("Present : %d", attendance.getPresentDays());
         String absentText = String.format("Absent  : %d", attendance.getAbsentDays());
 
+        thresholdBar.setProgress(attendance.getThreshold());
         totalDays.setText(totalText);
         presentDays.setText(presentText);
         absentDays.setText(absentText);
@@ -79,11 +97,24 @@ public class MainFragment extends Fragment {
 
     }
 
+    private void checkFirstRun() {
+        if (preferences.getBoolean(Atten.PREF_FIRST_RUN, true)) {
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putBoolean(Atten.PREF_FIRST_RUN, false);
+            editor.apply();
+        } else {
+            int threshold = preferences.getInt(Atten.PREF_THRESHOLD, 50);
+            int presentDays = preferences.getInt(Atten.PREF_PRESENT, 0);
+            int absentDays = preferences.getInt(Atten.PREF_ABSENT, 0);
+            attendance = new Attendance(presentDays, absentDays, threshold);
+        }
+    }
+
     static class ThresholdBar implements SeekBar.OnSeekBarChangeListener {
 
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-            threshold = progress;
+            attendance.setThreshold(progress);
         }
 
         @Override
@@ -92,7 +123,7 @@ public class MainFragment extends Fragment {
 
         @Override
         public void onStopTrackingTouch(SeekBar seekBar) {
-            snackBar.show("Threshold: " + threshold, SnackBar.SHORT_SNACK);
+            snackBar.show("Threshold: " + attendance.getThreshold(), SnackBar.SHORT_SNACK);
         }
     }
 }

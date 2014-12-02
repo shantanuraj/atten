@@ -9,4 +9,16 @@
         <item name="android:windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
     </style>
+
+    <style name="AppTheme.BannerPercent">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+        <item name="android:text">75%</item>
+        <item name="android:textSize">@dimen/abc_text_size_display_4_material</item>
+        <item name="android:layout_above">@+id/relativeLayout</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_marginBottom">4dp</item>
+    </style>
+
 </resources>

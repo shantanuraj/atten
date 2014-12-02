@@ -94,10 +94,14 @@ public class MainFragment extends Fragment {
 
     private void refreshView() {
         String percentageText;
-        switch (attendance.getAttendancePercent().intValue()) {
-            case 100: percentageText = "100%"; break;
-            case 0: percentageText = ""; break;
-            default:  percentageText = String.format("%.2f", attendance.getAttendancePercent().floatValue()) + "%";
+        float check = attendance.getAttendancePercent().floatValue() - attendance.getAttendancePercent().intValue();
+
+        if (attendance.getAttendancePercent().intValue() == 0) {
+            percentageText = "";
+        } else if (check == 0) {
+            percentageText = attendance.getAttendancePercent().intValue() + "%";
+        } else {
+            percentageText = String.format("%.2f", attendance.getAttendancePercent().floatValue()) + "%";
         }
 
         String totalText = String.format("Days     : %d", attendance.getTotalDays());

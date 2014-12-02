@@ -1,13 +1,9 @@
-package sixth.io.atten.controller;
+package io.sixth.atten.controller;
 
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
-import sixth.io.atten.R;
-import sixth.io.atten.util.BaseActivity;
+import io.sixth.atten.R;
+import io.sixth.atten.util.BaseActivity;
 
 
 public class MainActivity extends BaseActivity {

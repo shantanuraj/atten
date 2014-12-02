@@ -1,4 +1,4 @@
-package sixth.io.atten.util;
+package io.sixth.atten.util;
 
 /**
  * Created by swapnil on 2/12/14.

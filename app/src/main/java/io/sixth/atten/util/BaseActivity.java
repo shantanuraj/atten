@@ -1,4 +1,4 @@
-package sixth.io.atten.util;
+package io.sixth.atten.util;
 
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
@@ -6,7 +6,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import sixth.io.atten.R;
+import io.sixth.atten.R;
 
 /**
  * Created by walle on 23/10/14.

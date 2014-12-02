@@ -1,4 +1,4 @@
-package sixth.io.atten.model;
+package io.sixth.atten.model;
 
 /**
  * Created by swapnil on 1/12/14.

@@ -1,4 +1,4 @@
-package sixth.io.atten;
+package io.sixth.atten;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

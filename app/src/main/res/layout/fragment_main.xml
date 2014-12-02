@@ -89,15 +89,27 @@
         android:layout_below="@+id/label_present_days"
         android:layout_centerHorizontal="true" />
 
-    <SeekBar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/atten_threshold"
-        android:layout_marginLeft="36dp"
-        android:layout_marginRight="36dp"
-        android:layout_marginBottom="16dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tip"
+            android:textSize="32sp"
+            android:text="75"
+            android:textColor="@color/primary_material_light"
+
+            android:layout_above="@+id/atten_threshold"
+            android:layout_alignLeft="@+id/label_absent_days"
+            android:layout_alignStart="@+id/label_absent_days" />
+
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/atten_threshold"
+            android:layout_marginLeft="36dp"
+            android:layout_marginRight="36dp"
+            android:layout_marginBottom="16dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

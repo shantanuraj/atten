@@ -1,4 +1,4 @@
 <resources>
-    <dimen name="atten_large_text">76sp</dimen>
+    <dimen name="atten_large_text">100sp</dimen>
     <dimen name="atten_banner_text">84sp</dimen>
 </resources>

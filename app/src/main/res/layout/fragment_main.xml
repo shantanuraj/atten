@@ -46,7 +46,7 @@
 
     <TextView
         style="@style/AppTheme.BannerPercent"
-        android:text="63.33%"
+        android:text="55.55%"
         android:id="@+id/label_percentage"/>
 
     <TextView

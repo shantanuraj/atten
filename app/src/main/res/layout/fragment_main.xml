@@ -1,9 +1,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                xmlns:fab="http://schemas.android.com/apk/res-auto"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:context=".MainActivity$PlaceholderFragment">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity$PlaceholderFragment"
+    android:background="@color/app_background">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -45,7 +46,8 @@
 
     <TextView
         style="@style/AppTheme.BannerPercent"
-        android:fontFamily="sans-serif-light"
+        android:text="63.33%"
+        android:textSize="100sp"
         android:id="@+id/label_percentage"/>
 
     <TextView
@@ -54,7 +56,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Total : 123"
         android:id="@+id/label_total_days"
-        android:layout_below="@+id/relativeLayout"
+        android:layout_above="@+id/label_present_days"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="69dp" />
 
@@ -64,7 +66,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Present : 89"
         android:id="@+id/label_present_days"
-        android:layout_below="@+id/label_total_days"
+        android:layout_above="@+id/label_absent_days"
         android:layout_centerHorizontal="true" />
 
     <TextView
@@ -73,7 +75,8 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Absent : 88"
         android:id="@+id/label_absent_days"
-        android:layout_below="@+id/label_present_days"
+        android:layout_marginBottom="48dp"
+        android:layout_above="@+id/atten_threshold"
         android:layout_centerHorizontal="true" />
 
     <TextView

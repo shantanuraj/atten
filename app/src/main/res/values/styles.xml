@@ -24,4 +24,9 @@
         <item name="android:fontFamily">sans-serif-light</item>
     </style>
 
+    <style name="AppTheme.MaterialButton">
+        <item name="android:textColor">@color/material_deep_teal_500</item>
+        <item name="android:background">@color/app_background</item>
+    </style>
+
 </resources>

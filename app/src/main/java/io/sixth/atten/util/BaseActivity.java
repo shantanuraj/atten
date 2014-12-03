@@ -33,14 +33,6 @@ public abstract class BaseActivity extends ActionBarActivity {
 
     abstract public int getLayout();
 
-    @Override public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     protected void hideActionBarTitle() {
         getSupportActionBar().setDisplayShowTitleEnabled(false);

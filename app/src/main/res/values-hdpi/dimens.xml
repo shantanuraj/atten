@@ -3,5 +3,5 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="atten_large_text">112sp</dimen>
-    <dimen name="atten_banner_text">90sp</dimen>
+    <dimen name="atten_banner_text">82sp</dimen>
 </resources>

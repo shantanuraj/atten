@@ -21,7 +21,7 @@
         style="@style/AppTheme.MaterialButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Shantanu Raj"
+        android:text="SHANTANU RAJ"
         android:id="@+id/atten_btn_shantanu"
         android:layout_below="@+id/atten_text_dev"
         android:layout_centerHorizontal="true"/>
@@ -30,7 +30,7 @@
         style="@style/AppTheme.MaterialButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Swapnil Raj"
+        android:text="SWAPNIL RAJ"
         android:id="@+id/atten_btn_swapnil"
         android:layout_below="@+id/atten_btn_shantanu"
         android:layout_centerHorizontal="true"/>
@@ -48,7 +48,7 @@
         style="@style/AppTheme.MaterialButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Delete"
+        android:text="DELETE"
         android:id="@+id/delete_button"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.sixth.atten.R;
 import io.sixth.atten.util.BaseActivity;
@@ -31,6 +32,7 @@ public class SettingsActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ButterKnife.inject(this);
         hideActionBarTitle();
     }
 

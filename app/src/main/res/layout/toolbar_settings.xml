@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:text="sixth.io"
             android:textColor="@color/material_deep_teal_900"
-            android:textSize="@dimen/atten_large_text"
+            android:textSize="@dimen/atten_banner_text"
             android:layout_below="@+id/toolbar_title"/>
     </RelativeLayout>
 

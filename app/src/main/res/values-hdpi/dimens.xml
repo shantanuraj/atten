@@ -2,6 +2,6 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="atten_large_text">112sp</dimen>
-    <dimen name="atten_banner_text">82sp</dimen>
+    <dimen name="atten_large_text">96sp</dimen>
+    <dimen name="atten_banner_text">76sp</dimen>
 </resources>

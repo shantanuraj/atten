@@ -9,7 +9,7 @@ public class Attendance {
     private int threshold;
 
     public Attendance() {
-        this.absentDays = this.presentDays = 0;
+        this.absentDays = this.presentDays = 0; this.threshold = 50;
     }
 
     public Attendance(int presentDays, int absentDays, int threshold) {

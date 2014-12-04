@@ -24,9 +24,12 @@ import io.sixth.atten.util.Atten;
  */
 public class MainFragment extends Fragment {
 
-    private static SnackBar snackBar;
     private static Attendance attendance;
+
+    private static SnackBar snackBar;
     private SharedPreferences preferences;
+    private static SeekBar thresholdBar;
+    private static TextView mDistance;
 
     public MainFragment() {
         attendance = new Attendance();
@@ -36,8 +39,6 @@ public class MainFragment extends Fragment {
     @InjectView(R.id.label_percentage) TextView percentage;
     @InjectView(R.id.label_present_days) TextView presentDays;
     @InjectView(R.id.label_absent_days) TextView absentDays;
-    private static SeekBar thresholdBar;
-    private static TextView mDistance;
 
     @OnClick(R.id.atten_present) void presentHandler() {
         attendance.markPresentDay();

@@ -2,12 +2,14 @@ package io.sixth.atten.controller;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.sixth.atten.R;
+import io.sixth.atten.util.Atten;
 import io.sixth.atten.util.BaseActivity;
 
 /**
@@ -27,6 +29,16 @@ public class SettingsActivity extends BaseActivity {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(url);
         startActivity(intent);
+    }
+
+    @OnClick(R.id.delete_button) void clickedDelete() {
+        SharedPreferences preferences = getSharedPreferences(Atten.PREF_FILE, MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt(Atten.PREF_PRESENT, 0);
+        editor.putInt(Atten.PREF_ABSENT, 0);
+        editor.putInt(Atten.PREF_THRESHOLD, 50);
+        editor.putBoolean(Atten.PREF_FIRST_RUN, true);
+        editor.apply();
     }
 
     @Override

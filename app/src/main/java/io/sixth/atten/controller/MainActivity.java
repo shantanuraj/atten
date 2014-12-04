@@ -14,8 +14,8 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        hideActionBarTitle();
-        setActionBarIcon(R.drawable.ic_atten_menu);
+//        setActionBarIcon(R.drawable.ic_atten_menu);
+        hideActionBarHomeButton();
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, new MainFragment())
@@ -29,9 +29,11 @@ public class MainActivity extends BaseActivity {
 
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case android.R.id.home:
+            case R.id.action_settings:
                 Intent intent = new Intent(this, SettingsActivity.class);
                 startActivity(intent);
+            default:
+                break;
         }
 
         return super.onOptionsItemSelected(item);
@@ -39,7 +41,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
 

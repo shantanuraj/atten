@@ -38,6 +38,8 @@ public class SettingsActivity extends BaseActivity {
         new MaterialDialog.Builder(this)
                 .content(R.string.app_confirm)
                 .theme(Theme.LIGHT)
+                .positiveColorRes(R.color.material_deep_teal_900)
+                .negativeColorRes(R.color.material_deep_teal_900)
                 .positiveText(R.string.dialog_yes)
                 .negativeText(R.string.dialog_no)
                 .callback(new MaterialDialog.Callback() {
@@ -63,7 +65,6 @@ public class SettingsActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ButterKnife.inject(this);
-        hideActionBarTitle();
     }
 
     @Override

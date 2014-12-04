@@ -25,8 +25,9 @@ public abstract class BaseActivity extends ActionBarActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         if (toolbar != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             setSupportActionBar(toolbar);
+            hideActionBarTitle();
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
     }
@@ -36,6 +37,10 @@ public abstract class BaseActivity extends ActionBarActivity {
 
     protected void hideActionBarTitle() {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+    }
+
+    protected void hideActionBarHomeButton() {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
     }
 
     protected void setActionBarIcon(int iconRes) {

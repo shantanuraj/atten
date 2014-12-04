@@ -1,6 +1,9 @@
 package io.sixth.atten.controller;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -32,13 +35,27 @@ public class SettingsActivity extends BaseActivity {
     }
 
     @OnClick(R.id.delete_button) void clickedDelete() {
-        SharedPreferences preferences = getSharedPreferences(Atten.PREF_FILE, MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putInt(Atten.PREF_PRESENT, 0);
-        editor.putInt(Atten.PREF_ABSENT, 0);
-        editor.putInt(Atten.PREF_THRESHOLD, 50);
-        editor.putBoolean(Atten.PREF_FIRST_RUN, true);
-        editor.apply();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(R.string.app_confirm)
+                .setPositiveButton(R.string.dialog_yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        SharedPreferences preferences = getSharedPreferences(Atten.PREF_FILE, Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putInt(Atten.PREF_PRESENT, 0);
+                        editor.putInt(Atten.PREF_ABSENT, 0);
+                        editor.putInt(Atten.PREF_THRESHOLD, 50);
+                        editor.putBoolean(Atten.PREF_FIRST_RUN, true);
+                        editor.apply();
+                    }
+                })
+                .setNegativeButton(R.string.dialog_no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                    }
+                });
+
+        Dialog dialog = builder.create();
+        dialog.show();
     }
 
     @Override

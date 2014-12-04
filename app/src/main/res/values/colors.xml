@@ -3,10 +3,9 @@
     <color name="secondary_dark">@color/lightblue700</color>
     <color name="secondary_light">@color/lightblue500</color>
 
-    <color name="button_pres">#f55151</color>
-    <color name="button_abs">#f55151</color>
+    <color name="button_fab">#f55151</color>
     <color name="button_pressed">#f88484</color>
-    <color name="ripple">#dd000000</color>
+    <color name="ripple">@color/yellow700</color>
 
     <color name="black">#000000</color>
     <color name="primary_text">#dd000000</color>
@@ -34,4 +33,5 @@
     <color name="material_deep_teal_900">#004D40</color>
 
     <color name="app_background">#eeeeee</color>
+    <color name="button_delete">#f55151</color>
 </resources>

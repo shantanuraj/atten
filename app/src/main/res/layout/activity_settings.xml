@@ -39,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Delete all app data"
+        android:text="@string/hint_delete"
         android:id="@+id/delete_text"
         android:layout_above="@+id/delete_button"
         android:layout_centerHorizontal="true" />
@@ -48,7 +48,8 @@
         style="@style/AppTheme.MaterialButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="DELETE"
+        android:text="@string/button_delete"
+        android:textColor="@color/button_delete"
         android:id="@+id/delete_button"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"

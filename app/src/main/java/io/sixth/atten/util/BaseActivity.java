@@ -25,7 +25,7 @@ public abstract class BaseActivity extends ActionBarActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         if (toolbar != null) {
-            toolbar.setNavigationIcon(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             setSupportActionBar(toolbar);
         }
 

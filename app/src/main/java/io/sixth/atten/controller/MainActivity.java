@@ -2,8 +2,7 @@ package io.sixth.atten.controller;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.NavUtils;
-import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import io.sixth.atten.R;
@@ -36,6 +35,12 @@ public class MainActivity extends BaseActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
     }
 
 }

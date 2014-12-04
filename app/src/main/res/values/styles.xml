@@ -5,7 +5,7 @@
     <style name="AppTheme.Base" parent="Theme.AppCompat.Light">
         <item name="colorPrimary">@color/material_deep_teal_400</item>
         <item name="colorPrimaryDark">@color/material_deep_teal_500</item>
-        <item name="colorAccent">@color/yellow500</item>
+        <item name="colorAccent">@color/material_deep_teal_900</item>
         <item name="android:windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
     </style>

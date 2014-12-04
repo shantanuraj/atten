@@ -1,13 +1,13 @@
 package io.sixth.atten.controller;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.afollestad.materialdialogs.Theme;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -35,10 +35,14 @@ public class SettingsActivity extends BaseActivity {
     }
 
     @OnClick(R.id.delete_button) void clickedDelete() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(R.string.app_confirm)
-                .setPositiveButton(R.string.dialog_yes, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
+        new MaterialDialog.Builder(this)
+                .content(R.string.app_confirm)
+                .theme(Theme.LIGHT)
+                .positiveText(R.string.dialog_yes)
+                .negativeText(R.string.dialog_no)
+                .callback(new MaterialDialog.Callback() {
+                    @Override
+                    public void onPositive(MaterialDialog dialog) {
                         SharedPreferences preferences = getSharedPreferences(Atten.PREF_FILE, Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = preferences.edit();
                         editor.putInt(Atten.PREF_PRESENT, 0);
@@ -47,15 +51,12 @@ public class SettingsActivity extends BaseActivity {
                         editor.putBoolean(Atten.PREF_FIRST_RUN, true);
                         editor.apply();
                     }
-                })
-                .setNegativeButton(R.string.dialog_no, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-
+                    @Override
+                    public void onNegative(MaterialDialog dialog) {
+                        dialog.dismiss();
                     }
-                });
-
-        Dialog dialog = builder.create();
-        dialog.show();
+                })
+                .show();
     }
 
     @Override

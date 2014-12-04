@@ -30,4 +30,5 @@ dependencies {
     compile 'com.melnykov:floatingactionbutton:1.0.9'
     compile 'com.jakewharton:butterknife:6.0.0'
     compile 'com.github.mrengineer13:snackbar:0.4.0'
+    compile 'com.afollestad:material-dialogs:0.3.4'
 }

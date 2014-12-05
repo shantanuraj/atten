@@ -59,14 +59,13 @@ public class MainFragment extends Fragment {
         preferences = getActivity().getSharedPreferences(Atten.PREF_FILE, Context.MODE_PRIVATE);
         setupView(rootView);
 
-        checkFirstRun();
-
         return rootView;
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        loadPreferences();
         refreshView();
     }
 
@@ -119,17 +118,11 @@ public class MainFragment extends Fragment {
 
     }
 
-    private void checkFirstRun() {
-        if (preferences.getBoolean(Atten.PREF_FIRST_RUN, true)) {
-            SharedPreferences.Editor editor = preferences.edit();
-            editor.putBoolean(Atten.PREF_FIRST_RUN, false);
-            editor.apply();
-        } else {
-            int threshold = preferences.getInt(Atten.PREF_THRESHOLD, 50);
-            int presentDays = preferences.getInt(Atten.PREF_PRESENT, 0);
-            int absentDays = preferences.getInt(Atten.PREF_ABSENT, 0);
-            attendance = new Attendance(presentDays, absentDays, threshold);
-        }
+    private void loadPreferences() {
+        int threshold = preferences.getInt(Atten.PREF_THRESHOLD, 50);
+        int presentDays = preferences.getInt(Atten.PREF_PRESENT, 0);
+        int absentDays = preferences.getInt(Atten.PREF_ABSENT, 0);
+        attendance = new Attendance(presentDays, absentDays, threshold);
     }
 
     private static void showToolTip(int progress) {

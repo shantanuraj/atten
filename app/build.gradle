@@ -8,8 +8,8 @@ android {
         applicationId "io.sixth.atten"
         minSdkVersion 16
         targetSdkVersion 21
-        versionCode 4
-        versionName "1.2"
+        versionCode 5
+        versionName "1.2.1r"
     }
 
     compileOptions {

@@ -2,31 +2,8 @@
 <resources>
     <style name="AppTheme" parent="AppTheme.Base"/>
 
-    <style name="AppTheme.Base" parent="Theme.AppCompat.Light">
-        <item name="colorPrimary">@color/material_deep_teal_400</item>
-        <item name="colorPrimaryDark">@color/material_deep_teal_500</item>
-        <item name="colorAccent">@color/yellow500</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="windowActionBar">false</item>
-    </style>
-
-    <style name="AppTheme.BannerPercent" parent="AppTheme.FontFamily">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
-        <item name="android:textSize">@dimen/atten_large_text</item>
-        <item name="android:layout_above">@+id/relativeLayout</item>
-        <item name="android:layout_centerHorizontal">true</item>
-        <item name="android:layout_marginBottom">4dp</item>
-    </style>
-
     <style name="AppTheme.FontFamily">
         <item name="android:fontFamily">sans-serif-thin</item>
-    </style>
-
-    <style name="AppTheme.MaterialButton">
-        <item name="android:textColor">@color/material_deep_teal_500</item>
-        <item name="android:background">@color/app_background</item>
     </style>
 
 </resources>

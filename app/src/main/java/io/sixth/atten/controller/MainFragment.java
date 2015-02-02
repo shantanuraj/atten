@@ -27,12 +27,12 @@ public class MainFragment extends Fragment {
     private static Attendance attendance;
 
     private static SnackBar snackBar;
-    private SharedPreferences preferences;
     private static SeekBar thresholdBar;
     private static TextView mDistance;
 
+    private String mTitle = "default";
+
     public MainFragment() {
-        attendance = new Attendance();
     }
 
     @InjectView(R.id.label_total_days) TextView totalDays;
@@ -56,7 +56,7 @@ public class MainFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
         ButterKnife.inject(this, rootView);
         snackBar = new SnackBar(getActivity());
-        preferences = getActivity().getSharedPreferences(Atten.PREF_FILE, Context.MODE_PRIVATE);
+        attendance = new Attendance(mTitle);
         setupView(rootView);
 
         return rootView;
@@ -65,18 +65,13 @@ public class MainFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        loadPreferences();
         refreshView();
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putInt(Atten.PREF_THRESHOLD, attendance.getThreshold());
-        editor.putInt(Atten.PREF_PRESENT, attendance.getPresentDays());
-        editor.putInt(Atten.PREF_ABSENT, attendance.getAbsentDays());
-        editor.apply();
+        attendance.save();
     }
 
     private void checkPercent() {
@@ -116,13 +111,6 @@ public class MainFragment extends Fragment {
 
         checkPercent();
 
-    }
-
-    private void loadPreferences() {
-        int threshold = preferences.getInt(Atten.PREF_THRESHOLD, 50);
-        int presentDays = preferences.getInt(Atten.PREF_PRESENT, 0);
-        int absentDays = preferences.getInt(Atten.PREF_ABSENT, 0);
-        attendance = new Attendance(presentDays, absentDays, threshold);
     }
 
     private static void showToolTip(int progress) {
